@@ -10,8 +10,8 @@
 .. image:: https://circleci.com/gh/sdpython/_check_python_install/tree/master.svg?style=svg
     :target: https://circleci.com/gh/sdpython/_check_python_install/tree/master
 
-.. image:: https://dev.azure.com/xavierdupre3/pyquickhelper/_apis/build/status/sdpython._check_python_install
-    :target: https://dev.azure.com/xavierdupre3/_check_python_install/
+.. image:: https://dev.azure.com/xavierdupre3/pyquickhelper/_apis/build/status/sdpython.check_python_install
+    :target: https://dev.azure.com/xavierdupre3/check_python_install/
 
 .. image:: https://badge.fury.io/py/_check_python_install.svg
     :target: http://badge.fury.io/py/_check_python_install
