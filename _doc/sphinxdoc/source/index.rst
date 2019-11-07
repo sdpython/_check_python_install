@@ -8,7 +8,7 @@ _check_python_install
         :target: https://travis-ci.org/sdpython/_check_python_install
         :alt: Build status
 
-    .. image:: https://ci.appveyor.com/api/projects/status/8yv4brsckay4374a?svg=true
+    .. image:: https://ci.appveyor.com/api/projects/status/dy37r7bykm3ulcfl?svg=true
         :target: https://ci.appveyor.com/project/sdpython/python3-module-template
         :alt: Build Status Windows
 
@@ -35,10 +35,6 @@ _check_python_install
 
     .. image:: https://codecov.io/github/sdpython/_check_python_install/coverage.svg?branch=master
         :target: https://codecov.io/github/sdpython/_check_python_install?branch=master
-
-.. image:: nbcov.png
-    :target: http://www.xavierdupre.fr/app/_check_python_install/helpsphinx/all_notebooks_coverage.html
-    :alt: Notebook Coverage
 
 **Links:** `github <https://github.com/sdpython/_check_python_install/>`_,
 `documentation <http://www.xavierdupre.fr/app/_check_python_install/helpsphinx2/index.html>`_,
