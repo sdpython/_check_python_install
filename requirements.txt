@@ -1,0 +1,6 @@
+coverage
+jyquickhelper
+git+https://github.com/sdpython/nbconvert.git@fixes
+pyquickhelper
+sphinx_rtd_theme
+wheel

@@ -1,0 +1,8 @@
+
+.. blogpost::
+    :title: First commit.
+    :keywords: exemple
+    :date: 2019-11-07
+    :categories: first
+
+    A package just to check others.
