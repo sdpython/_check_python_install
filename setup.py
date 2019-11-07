@@ -8,7 +8,7 @@ from setuptools import find_packages
 # settings
 #########
 
-project_var_name = "_check_python_install"
+project_var_name = "check_python_install"
 project_owner = "sdpython"
 versionPython = "%s.%s" % (sys.version_info.major, sys.version_info.minor)
 path = "Lib/site-packages/" + project_var_name

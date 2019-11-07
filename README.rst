@@ -33,8 +33,8 @@
 
 .. _l-README:
 
-_check_python_install
-=====================
+check_python_install
+====================
 
 The project tries different installation instruction for
 a couple of packages difficult to install.

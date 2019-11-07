@@ -13,7 +13,7 @@ class TestCodeStyle(ExtTestCase):
     def test_style_src(self):
         thi = os.path.abspath(os.path.dirname(__file__))
         src_ = os.path.normpath(os.path.join(
-            thi, "..", "..", "python3_module_template"))
+            thi, "..", "..", "check_python_install"))
         check_pep8(src_, skip=[])
 
     def test_style_test(self):

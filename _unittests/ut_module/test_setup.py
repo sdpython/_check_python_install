@@ -5,7 +5,7 @@ import unittest
 from contextlib import redirect_stdout
 from io import StringIO
 from pyquickhelper.pycode import ExtTestCase
-from _check_python_install import check, _setup_hook
+from check_python_install import check, _setup_hook
 
 
 class TestSetup(ExtTestCase):

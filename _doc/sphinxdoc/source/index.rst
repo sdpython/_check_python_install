@@ -1,6 +1,6 @@
 
-_check_python_install
-=====================
+check_python_install
+====================
 
 .. only:: html
 

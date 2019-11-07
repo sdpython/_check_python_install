@@ -1,7 +1,7 @@
 # coding: utf-8
 """
 @file
-@brief Module *_check_python_install*.
+@brief Module *check_python_install*.
 Checks other modules installation on CI.
 """
 
