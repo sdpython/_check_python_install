@@ -122,8 +122,8 @@ if is_local():
         coverage_options=dict(omit=["*exclude*.py"]),
         github_owner=project_owner,
         fLOG=logging_function, covtoken=(
-            "", "'_UT_37_std' in outfile"),
-        layout=["rst", "pdf", "html"])
+            "c9394f94-fc82-4fe5-a4d4-268593b8d897", "'_UT_37_std' in outfile"),
+        layout=["rst", "html"])
     if not r and not ({"bdist_msi", "sdist",
                        "bdist_wheel", "publish", "publish_doc", "register",
                        "upload_docs", "bdist_wininst", "build_ext"} & set(sys.argv)):
