@@ -29,10 +29,6 @@ check_python_install
         :alt: MIT License
         :target: http://opensource.org/licenses/MIT
 
-    .. image:: https://requires.io/github/sdpython/_check_python_install/requirements.svg?branch=master
-         :target: https://requires.io/github/sdpython/_check_python_install/requirements/?branch=master
-         :alt: Requirements Status
-
     .. image:: https://codecov.io/github/sdpython/_check_python_install/coverage.svg?branch=master
         :target: https://codecov.io/github/sdpython/_check_python_install?branch=master
 

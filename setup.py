@@ -136,7 +136,7 @@ if not r:
         from pyquickhelper.pycode import process_standard_options_for_setup_help
         process_standard_options_for_setup_help(sys.argv)
     from pyquickhelper.pycode import clean_readme
-    from python3_module_template import __version__ as sversion
+    from check_python_install import __version__ as sversion
     long_description = clean_readme(long_description)
 
     setup(
