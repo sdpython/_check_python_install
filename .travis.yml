@@ -8,7 +8,8 @@ before_install:
     - sudo apt-get install libgeos-dev libproj-dev
 install:
     - pip install scipy matplotlib cython shapely pyproj
-    - pip install git+https://github.com/SciTools/cartopy.git
+    #- pip install git+https://github.com/SciTools/cartopy.git
+    pip install cartopy
     - pip install -r requirements.txt
 script:
     - python ./setup.py unittests
