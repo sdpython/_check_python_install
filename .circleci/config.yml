@@ -63,6 +63,7 @@ jobs:
           command: |
             python3 -m venv venv
             . venv/bin/activate
+            pip install scipy matplotlib cython shapely pyproj
             pip install git+https://github.com/SciTools/cartopy.git
 
       - run:
