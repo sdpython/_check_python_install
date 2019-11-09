@@ -1,6 +1,9 @@
+cartopy
 coverage
 jyquickhelper
+matplotlib
 git+https://github.com/sdpython/nbconvert.git@fixes
+numpy
+pandas
 pyquickhelper
-sphinx_rtd_theme
 wheel

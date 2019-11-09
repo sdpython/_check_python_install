@@ -21,4 +21,3 @@ nblinks = {
 epkg_dictionary.update({
     'cartopy': 'https://scitools.org.uk/cartopy/docs/latest/',
 })
-
