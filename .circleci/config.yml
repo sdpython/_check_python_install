@@ -37,6 +37,28 @@ jobs:
                     sudo apt-get install -y graphviz
           
       - run:
+          name: Install pyproj (1)
+          command: |
+            echo "deb http://deb.debian.org/debian sid main" | sudo tee /etc/apt/sources.list.d/proj.list
+            sudo apt-get -qq update
+            sudo apt-get -t sid install -y libproj-dev proj-bin=6.2.1-1 proj-data libgeos-dev
+
+      - run:
+          name: Install pyproj (2)
+          command: |
+            python3 -m venv venv
+            . venv/bin/activate
+            pip install git+https://github.com/pyproj4/pyproj.git
+
+            # needed otherwise error: ImportError: libproj.so.9: cannot open shared object file: No such file or directory
+
+      - run:
+          name: Install pyproj (3)
+          command: |
+            wget http://es.archive.ubuntu.com/ubuntu/pool/universe/p/proj/libproj9_4.9.2-2_amd64.deb 
+            sudo dpkg -i libproj9_4.9.2-2_amd64.deb 
+
+      - run:
           name: install dependencies
           command: |
             python3 -m venv venv
