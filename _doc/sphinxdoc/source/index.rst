@@ -9,7 +9,7 @@ check_python_install
         :alt: Build status
 
     .. image:: https://ci.appveyor.com/api/projects/status/dy37r7bykm3ulcfl?svg=true
-        :target: https://ci.appveyor.com/project/sdpython/python3-module-template
+        :target: https://ci.appveyor.com/project/sdpython/check-python-install
         :alt: Build Status Windows
 
     .. image:: https://circleci.com/gh/sdpython/_check_python_install/tree/master.svg?style=svg
@@ -44,6 +44,7 @@ for a couple of modules.
 .. toctree::
     :maxdepth: 1
 
+    install/cartopy
     indexmenu
     HISTORY
 
