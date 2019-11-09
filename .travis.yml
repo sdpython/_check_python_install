@@ -3,9 +3,11 @@ sudo: true
 language: python
 python:
     - "3.7"
-install: 
-    - apt-get install proj-bin proj-data
-    - apt-get install libgeos-dev libproj-dev
+before_install:
+    - sudo apt-get install proj-bin proj-data
+    - sudo apt-get install libgeos-dev libproj-dev
+install:
+    - pip install git+https://github.com/SciTools/cartopy.git
     - pip install -r requirements.txt
 script:
     - python ./setup.py unittests

@@ -57,7 +57,7 @@ jobs:
       architecture: 'x64'
   - script: python -m pip install --upgrade pip setuptools wheel
     displayName: 'Install tools'
-  - script: brew install -y proj-bin proj-data libgeos-dev libproj-dev
+  - script: brew install proj-bin proj-data libgeos-dev libproj-dev
     displayName: 'Install proj'
   - script: pip install -r requirements.txt
     displayName: 'Install Requirements'
