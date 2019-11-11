@@ -2,7 +2,6 @@ cartopy
 coverage
 jyquickhelper
 matplotlib
-git+https://github.com/sdpython/nbconvert.git@fixes
 numpy
 pandas
 pyproj
