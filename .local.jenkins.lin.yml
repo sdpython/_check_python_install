@@ -14,7 +14,8 @@ install:
   - $PYINT -m pip freeze
 
 script:
-  - { CMD: "$PYINT -u ./setup.py unittests", NAME: "UT" }
+  - { CMD: "$PYINT -u ./setup.py unittests -g \".*(code_style).*\"", NAME: "UT" }
+  - { CMD: "$PYINT -u ./setup.py unittests -e \".*(code_style).*\"", NAME: "UT_STYLE" }
 
 after_script:
   - $PYINT -u ./setup.py bdist_wheel
