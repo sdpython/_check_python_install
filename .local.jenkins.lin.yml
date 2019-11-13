@@ -12,6 +12,7 @@ install:
   - $PYINT -m pip install -r requirements.txt
   - $PYINT --version
   - $PYINT -m pip freeze
+  - apt list --installed
 
 script:
   - { CMD: "$PYINT -u ./setup.py unittests -g \".*(code_style).*\"", NAME: "UT" }
