@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/python:3.7.0
+      - image: circleci/python:3.8.1
     
     working_directory: ~/repo
     
@@ -37,45 +37,30 @@ jobs:
                     sudo apt-get install -y graphviz
           
       - run:
-          name: Install pyproj (1)
+          name: Install pyproj
           command: |
-            echo "deb http://deb.debian.org/debian sid main" | sudo tee /etc/apt/sources.list.d/proj.list
-            echo "deb http://deb.debian.org/debian sid main" | sudo tee /etc/apt/sources.list.d/proj-bin.list
-            echo "deb http://deb.debian.org/debian sid main" | sudo tee /etc/apt/sources.list.d/proj-data.list
-            echo "deb http://deb.debian.org/debian sid main" | sudo tee /etc/apt/sources.list.d/libgeos-dev.list
-            echo "deb http://deb.debian.org/debian sid main" | sudo tee /etc/apt/sources.list.d/libproj-dev.list
-            sudo apt-get -qq update
-            sudo apt-get -t sid install -y libproj-dev proj-bin=6.2.1-1 proj-data libgeos-dev
-
-#      - run:
-#          name: Install pyproj (2)
-#          command: |
-#            python3 -m venv venv
-#            . venv/bin/activate
-#            pip install git+https://github.com/pyproj4/pyproj.git
-#
-#            # needed otherwise error: ImportError: libproj.so.9: cannot open shared object file: No such file or directory
-#
-#      - run:
-#          name: Install pyproj (3)
-#          command: |
-#            wget http://es.archive.ubuntu.com/ubuntu/pool/universe/p/proj/libproj9_4.9.2-2_amd64.deb 
-#            sudo dpkg -i libproj9_4.9.2-2_amd64.deb 
+            sudo apt-get install -y libproj-dev proj-bin proj-data libc6 libgeos-dev python-gdal gdal-bin
+            export PYPROJMAJVER=15
+            export PYPROJVERSION=6.2.1-1
+            wget http://es.archive.ubuntu.com/ubuntu/pool/universe/p/proj/libproj${PYPROJMAJVER}_${PYPROJVERSION}_amd64.deb
+            sudo dpkg -i libproj${PYPROJMAJVER}_${PYPROJVERSION}_amd64.deb
+            wget http://es.archive.ubuntu.com/ubuntu/pool/universe/p/proj/libproj-dev_${PYPROJVERSION}_amd64.deb
+            sudo dpkg -i libproj-dev_${PYPROJVERSION}_amd64.deb
 
       - run:
           name: Install cartopy
           command: |
             python3 -m venv venv
             . venv/bin/activate
-            pip install scipy matplotlib cython shapely pyproj
-            pip install git+https://github.com/SciTools/cartopy.git
+            pip3 install scipy matplotlib cython shapely pyproj
+            pip3 install cartopy.git
 
       - run:
           name: install dependencies
           command: |
             python3 -m venv venv
             . venv/bin/activate
-            pip install -r requirements.txt
+            pip3 install -r requirements.txt
 
       - save_cache:
           paths:
@@ -87,7 +72,7 @@ jobs:
           command: |
             python3 -m venv venv
             . venv/bin/activate
-            pip freeze
+            pip3 freeze
             apt list --installed
         
       - run:
@@ -108,7 +93,7 @@ jobs:
           name: documentation
           command: |
             . venv/bin/activate
-            python ./setup.py build_sphinx
+            python3 ./setup.py build_sphinx
             
       - run:
           name: copy documentation

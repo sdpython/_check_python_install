@@ -9,7 +9,7 @@ before_install:
 install:
     - pip install scipy matplotlib cython shapely pyproj
     #- pip install git+https://github.com/SciTools/cartopy.git
-    pip install cartopy
+    - pip install cartopy
     - pip install -r requirements.txt
     - pip freeze
     - apt list --installed
