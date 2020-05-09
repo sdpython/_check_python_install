@@ -5,7 +5,7 @@ python:
     - "3.7"
     - "3.8"
 before_install:
-    - sudo apt-get install libgeos-dev libproj-dev proj-data build-dep graphviz libgfortran3 libblas-dev liblapack-dev
+    - sudo apt-get install libgeos-dev libproj-dev proj-data graphviz libgfortran3 libblas-dev liblapack-dev
 install:
     - pip install scipy matplotlib cython shapely pyproj
     #- pip install git+https://github.com/SciTools/cartopy.git

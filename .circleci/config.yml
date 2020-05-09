@@ -40,8 +40,10 @@ jobs:
           name: Install pyproj
           command: |
             sudo apt-get install -y libproj-dev proj-bin proj-data libc6 libgeos-dev python-gdal gdal-bin
-            export PYPROJMAJVER=15
-            export PYPROJVERSION=6.2.1-1
+            # export PYPROJMAJVER=19
+            # export PYPROJVERSION=6.3.1-1
+            export PYPROJMAJVER=19
+            export PYPROJVERSION=7.0.1-1
             wget http://es.archive.ubuntu.com/ubuntu/pool/universe/p/proj/libproj${PYPROJMAJVER}_${PYPROJVERSION}_amd64.deb
             sudo dpkg -i libproj${PYPROJMAJVER}_${PYPROJVERSION}_amd64.deb
             wget http://es.archive.ubuntu.com/ubuntu/pool/universe/p/proj/libproj-dev_${PYPROJVERSION}_amd64.deb
