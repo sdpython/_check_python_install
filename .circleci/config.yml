@@ -39,23 +39,7 @@ jobs:
       - run:
           name: Install libproj
           command: |
-            # requires libstdc++6 >= 9
             sudo apt-get install -y libgeos-dev libproj-dev proj-data graphviz
-            export PYPROJMAJVER=15
-            export PYPROJVERSION=6.3.1-1
-            # export PYPROJMAJVER=19
-            #export PYPROJVERSION=7.0.1-1
-            #wget http://es.archive.ubuntu.com/ubuntu/pool/universe/p/proj/libproj${PYPROJMAJVER}_${PYPROJVERSION}_amd64.deb
-            #sudo dpkg -i libproj${PYPROJMAJVER}_${PYPROJVERSION}_amd64.deb
-            #wget http://es.archive.ubuntu.com/ubuntu/pool/universe/p/proj/libproj-dev_${PYPROJVERSION}_amd64.deb
-            #sudo dpkg -i libproj-dev_${PYPROJVERSION}_amd64.deb
-
-      #- run:
-      #    name: Install pyproj (2)
-      #    command: |
-      #      python3 -m venv venv
-      #      . venv/bin/activate
-      #      sudo pip install git+https://github.com/pyproj4/pyproj.git
 
       - run:
           name: Install standard libraries
@@ -70,6 +54,7 @@ jobs:
             python3 -m venv venv
             . venv/bin/activate
             pip3 install pyproj
+            pip3 uninstall -y shapely
             pip3 install --no-binary shapely shapely
             pip3 install cartopy
 
