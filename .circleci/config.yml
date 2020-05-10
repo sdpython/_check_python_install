@@ -40,7 +40,7 @@ jobs:
           name: Install pyproj (1)
           command: |
             # requires libstdc++6 >= 9
-            sudo apt-get install -y libgeos-dev libproj-dev proj-data graphviz libgfortran3 libblas-dev liblapack-dev
+            sudo apt-get install -y libgeos-dev libproj-dev proj-data graphviz
             export PYPROJMAJVER=15
             export PYPROJVERSION=6.3.1-1
             # export PYPROJMAJVER=19
@@ -58,11 +58,19 @@ jobs:
       #      sudo pip install git+https://github.com/pyproj4/pyproj.git
 
       - run:
-          name: Install cartopy
+          name: Install standard libraries
           command: |
             python3 -m venv venv
             . venv/bin/activate
-            pip3 install scipy matplotlib cython shapely pyproj
+            pip3 install scipy matplotlib numpy cython pandas
+
+      - run:
+          name: Install pyproj, shapely, cartopy
+          command: |
+            python3 -m venv venv
+            . venv/bin/activate
+            pip3 install pyproj
+            pip3 install shapely
             pip3 install cartopy
 
       - run:
