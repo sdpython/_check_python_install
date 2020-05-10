@@ -8,6 +8,7 @@ before_install:
     - sudo apt-get install libgeos-dev libproj-dev proj-data graphviz libgfortran3 libblas-dev liblapack-dev
 install:
     - pip install -r requirements.txt
+    # see https://github.com/SciTools/cartopy/issues/1490
     - pip uninstall -y shapely
     - pip install --no-binary shapely shapely
     - pip freeze
