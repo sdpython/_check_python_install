@@ -11,6 +11,8 @@ install:
     #- pip install git+https://github.com/SciTools/cartopy.git
     - pip install cartopy
     - pip install -r requirements.txt
+    - pip uninstall -y shapely
+    - pip install shapely
     - pip freeze
     - apt list --installed
 script:
