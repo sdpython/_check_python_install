@@ -14,4 +14,5 @@ pyquickhelper
 scipy
 shapely
 sphinx
+sphinxcontrib.imagesvg
 wheel
