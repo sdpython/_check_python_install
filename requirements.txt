@@ -1,12 +1,17 @@
+autopep8
 cartopy
 coverage
 cython
+jupyter_sphinx
 jyquickhelper
 matplotlib
 numpy
 pandas
+pycodestyle
+pylint
 pyproj
 pyquickhelper
 scipy
 shapely
+sphinx
 wheel
