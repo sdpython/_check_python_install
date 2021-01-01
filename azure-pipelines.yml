@@ -4,10 +4,9 @@ jobs:
     vmImage: 'ubuntu-latest'
   strategy:
     matrix:
-      Python37:
+      Python39-Linux:
         python.version: '3.9'
     maxParallel: 3
-
   steps:
   - task: UsePythonVersion@0
     inputs:
@@ -29,13 +28,10 @@ jobs:
     displayName: 'Install proj'
   - script: pip install -r requirements.txt
     displayName: 'Install Requirements'
-  - script: |
-      python -u ./setup.py unittests
+  - script: python -u ./setup.py unittests
     displayName: 'Runs Unit Tests'
-  - script: |
-      python -u ./setup.py bdist_wheel
+  - script: python -u ./setup.py bdist_wheel
     displayName: 'Build Package'
-
   - task: PublishPipelineArtifact@0
     inputs:
       artifactName: 'wheel-linux-$(python.version)'
@@ -46,10 +42,9 @@ jobs:
     vmImage: 'macOS-latest'
   strategy:
     matrix:
-      Python37:
+      Python39-MacOs:
         python.version: '3.9'
     maxParallel: 3
-
   steps:
   - task: UsePythonVersion@0
     inputs:
@@ -61,11 +56,9 @@ jobs:
     displayName: 'Install proj'
   - script: pip install -r requirements.txt
     displayName: 'Install Requirements'
-  - script: |
-      python -u ./setup.py unittests
+  - script: python -u ./setup.py unittests
     displayName: 'Runs Unit Tests'
-  - script: |
-      python -u ./setup.py bdist_wheel
+  - script: python -u ./setup.py bdist_wheel
     displayName: 'Build Package'
   - task: PublishPipelineArtifact@0
     inputs:
