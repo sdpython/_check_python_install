@@ -4,9 +4,10 @@ jobs:
     vmImage: 'ubuntu-latest'
   strategy:
     matrix:
-      Python39-Linux:
+      Python39:
         python.version: '3.9'
     maxParallel: 3
+
   steps:
   - task: UsePythonVersion@0
     inputs:
@@ -14,24 +15,34 @@ jobs:
       architecture: 'x64'
   - script: sudo apt-get update
     displayName: 'AptGet Update'
-  - script: sudo apt-get install -y pandoc
-    displayName: 'Install Pandoc'
-  - script: sudo apt-get install -y p7zip-full
-    displayName: 'Install 7z, rar'
   - script: sudo apt-get install -y inkscape
     displayName: 'Install Inkscape'
+  - script: sudo apt-get install -y pandoc
+    displayName: 'Install Pandoc'
+  - script: sudo apt-get install -y texlive texlive-latex-extra texlive-xetex dvipng
+    displayName: 'Install Latex'
+  - script: sudo apt-get install -y p7zip-full
+    displayName: 'Install 7z, rar'
   - script: sudo apt-get install -y graphviz
     displayName: 'Install Graphviz'
   - script: python -m pip install --upgrade pip setuptools wheel
     displayName: 'Install tools'
-  - script: sudo apt-get install -y proj-bin proj-data libgeos-dev libproj-dev
-    displayName: 'Install proj'
   - script: pip install -r requirements.txt
     displayName: 'Install Requirements'
-  - script: python -u ./setup.py unittests
+  - script: python -m pip install scikit-learn
+    displayName: 'Install scipy scikit-learn'    
+  - script: python -m pip install tkinterquickhelper --no-deps
+    displayName: 'Install tkinterquickhelper'    
+  - script: pip uninstall -y pyquickhelper
+    displayName: 'uninstall pyquickhelper'
+  - script: export PYTHONPATH=src
+    displayName: 'PYTHONPATH=src'
+  - script: python -u setup.py unittests
     displayName: 'Runs Unit Tests'
-  - script: python -u ./setup.py bdist_wheel
+  - script: python -u setup.py bdist_wheel
     displayName: 'Build Package'
+#  - script: python -u setup.py build_sphinx
+#    displayName: 'Builds Documentation'
   - task: PublishPipelineArtifact@0
     inputs:
       artifactName: 'wheel-linux-$(python.version)'
@@ -42,23 +53,62 @@ jobs:
     vmImage: 'macOS-latest'
   strategy:
     matrix:
-      Python39-MacOs:
-        python.version: '3.9'
-    maxParallel: 3
+      Python39:
+        python.version: "3.9"
+
   steps:
   - task: UsePythonVersion@0
     inputs:
       versionSpec: '$(python.version)'
       architecture: 'x64'
+  - script: gcc --version
+    displayName: 'gcc version'
+
+  - script: |
+          brew update
+    displayName: 'brew update'
+  - script: export
+    displayName: 'export'
+  - script: gcc --version
+    displayName: 'gcc version'
+  - script: brew install p7zip
+    displayName: 'Install p7zip'
+  - script: brew install pandoc
+    displayName: 'Install Pandoc'
+  - script: brew install graphviz
+    continueOnError: true
+    displayName: 'Install Graphviz'
+  - script: brew install cairo pango gdk-pixbuf libffi
+    displayName: 'Install cairo pango gdk-pixbuf libffi'
+  - bash: echo "##vso[task.prependpath]$CONDA/bin"
+    displayName: Add conda to PATH.
+  - bash: sudo chown -R $USER $CONDA
+    displayName: Take ownership of conda installation
+  - bash: conda update conda --yes --quiet
+    displayName: Update conda.
+  - script: brew install --cask mactex
+    continueOnError: true
+    displayName: 'Install latex'
   - script: python -m pip install --upgrade pip setuptools wheel
     displayName: 'Install tools'
-  - script: brew install proj geos
-    displayName: 'Install proj'
+  - bash: conda info -a
+  - bash: conda create --yes --quiet --name pyenv -c defaults -c conda-forge python=$PYTHON_VERSION tox sphinx jupyter Cython numpy mkl scipy scikit-learn pandas coverage pylint
+    displayName: Create Anaconda environment.
+  - bash: conda list
+  - bash: source activate pyenv
   - script: pip install -r requirements.txt
     displayName: 'Install Requirements'
-  - script: python -u ./setup.py unittests
+  - script: python -m pip install tkinterquickhelper --no-deps
+    displayName: 'Install tkinterquickhelper'    
+  - script: pip uninstall -y pyquickhelper
+    displayName: 'uninstall pyquickhelper'
+  - script: export PYTHONPATH=src
+    displayName: 'PYTHONPATH=src'
+  - script: python -u setup.py unittests
     displayName: 'Runs Unit Tests'
-  - script: python -u ./setup.py bdist_wheel
+  - script: pip freeze
+    displayName: 'pip freeze'
+  - script: python -u setup.py bdist_wheel
     displayName: 'Build Package'
   - task: PublishPipelineArtifact@0
     inputs:
