@@ -5,7 +5,7 @@
 Checks other modules installation on CI.
 """
 
-__version__ = "0.1"
+__version__ = "0.1.45"
 __author__ = "Xavier Dupré"
 __github__ = "https://github.com/sdpython/_check_python_install"
 __url__ = "http://www.xavierdupre.fr/app/_check_python_install/helpsphinx/index.html"

@@ -5,7 +5,7 @@ jobs:
   strategy:
     matrix:
       Python37:
-        python.version: '3.7'
+        python.version: '3.9'
     maxParallel: 3
 
   steps:
@@ -47,7 +47,7 @@ jobs:
   strategy:
     matrix:
       Python37:
-        python.version: '3.7'
+        python.version: '3.9'
     maxParallel: 3
 
   steps:
