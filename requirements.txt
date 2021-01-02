@@ -14,6 +14,9 @@ sphinx
 sphinxcontrib.imagesvg
 wheel
 
+# matplotlib
+cycler
+
 # numba
 llvmlite
 numba
