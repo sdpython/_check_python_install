@@ -8,7 +8,7 @@ python:
 
 before_install:
     - sudo apt-get install libgeos-dev libproj-dev proj-data graphviz libblas-dev liblapack-dev
-    - sudo apt-get install python-llvmlite
+    - sudo apt-get install llvm-10-dev
 
 install:
     - pip install -r requirements.txt
