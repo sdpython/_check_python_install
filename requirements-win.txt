@@ -3,5 +3,6 @@ importlib_metadata
 isort
 matplotlib
 numpy
+pylint
 pymyinstall
 pyshp
