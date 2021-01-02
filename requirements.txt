@@ -16,6 +16,11 @@ wheel
 
 # matplotlib
 cycler
+kiwisolver
+pillow
+pyparsing
+python-dateutil
+six
 
 # numba
 llvmlite
@@ -23,7 +28,6 @@ numba
 
 # cartopy
 cartopy
-pyparsing
 pyproj
 pyshp
 shapely
