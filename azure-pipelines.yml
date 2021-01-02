@@ -92,7 +92,7 @@ jobs:
   #  displayName: 'Install latex'
   - bash: conda install -y numpy scipy
     displayName: Install numpy scipy
-  - bash: conda install llvmlite numba
+  - bash: conda install -y llvmlite numba
     displayName: Install llvmlite numba
   - bash: conda install -y pyproj cartopy shapely
     displayName: Install pyproj cartopy shapely
