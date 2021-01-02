@@ -4,7 +4,7 @@ jobs:
     vmImage: 'ubuntu-latest'
   strategy:
     matrix:
-      Python39:
+      Python39-Linux:
         python.version: '3.9'
     maxParallel: 3
   steps:
@@ -27,7 +27,7 @@ jobs:
           chmod +x llvm.sh
           sudo ./llvm.sh 10
           ls /usr/bin/llvm*
-          export LLVM_CONFIG=/usr/bin/llvm-config
+          export LLVM_CONFIG=/usr/bin/llvm-config-10
     displayName: 'Install llvmlite'
   - script: sudo apt-get install -y p7zip-full
     displayName: 'Install 7z, rar'
@@ -36,7 +36,7 @@ jobs:
   - script: python -m pip install --upgrade pip setuptools wheel numpy
     displayName: 'Install tools'
   - script: |
-          export LLVM_CONFIG=/usr/bin/llvm-config
+          export LLVM_CONFIG=/usr/bin/llvm-config-10
           pip install -r requirements.txt
     displayName: 'Install Requirements'
   - script: python -u setup.py unittests
@@ -55,7 +55,7 @@ jobs:
     vmImage: 'macOS-latest'
   strategy:
     matrix:
-      Python39:
+      Python39-MacOs:
         python.version: "3.9"
   steps:
   - task: UsePythonVersion@0
@@ -94,7 +94,7 @@ jobs:
   - bash: conda create --yes --quiet --name pyenv -c defaults -c conda-forge python=$PYTHON_VERSION tox sphinx jupyter Cython numpy mkl scipy scikit-learn pandas coverage pylint
     displayName: Create Anaconda environment.
   - bash: source activate pyenv
-  - script: conda install -p requirements.txt
+  - script: pip install -r requirements.txt
     displayName: 'Install Requirements'
   - script: export PYTHONPATH=src
     displayName: 'PYTHONPATH=src'
