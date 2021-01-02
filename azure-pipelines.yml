@@ -45,8 +45,8 @@ jobs:
     displayName: 'Runs Unit Tests'
   - script: python -u setup.py bdist_wheel
     displayName: 'Build Package'
-#  - script: python -u setup.py build_sphinx
-#    displayName: 'Builds Documentation'
+  #- script: python -u setup.py build_sphinx
+  #  displayName: 'Builds Documentation'
   - task: PublishPipelineArtifact@0
     inputs:
       artifactName: 'wheel-linux-$(python.version)'
@@ -66,8 +66,7 @@ jobs:
       architecture: 'x64'
   - script: gcc --version
     displayName: 'gcc version'
-  - script: |
-          brew update
+  - script: brew update
     displayName: 'brew update'
   - script: export
     displayName: 'export'
@@ -91,11 +90,10 @@ jobs:
   #- script: brew install --cask mactex
   #  continueOnError: true
   #  displayName: 'Install latex'
-  - script: python -m pip install --upgrade pip setuptools wheel
-    displayName: 'Install tools'
-  - bash: conda create --yes --quiet --name pyenv -c defaults -c conda-forge python=$PYTHON_VERSION tox sphinx jupyter Cython numpy mkl scipy scikit-learn pandas coverage pylint
-    displayName: Create Anaconda environment.
-  - bash: source activate pyenv
+  - script: pip install --upgrade pip setuptools wheel
+    displayName: 'Install pip setuptools wheel'
+  - script: pip install numpy
+    displayName: 'Install numpy'
   - script: pip install -r requirements.txt
     displayName: 'Install Requirements'
   - script: export PYTHONPATH=src
