@@ -5,6 +5,7 @@ cython
 jupyter_sphinx
 jyquickhelper
 matplotlib
+numba
 numpy
 pandas
 pycodestyle
