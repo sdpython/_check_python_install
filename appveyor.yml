@@ -11,8 +11,8 @@ init:
 install:
   - "%PYTHON%\\python -m pip install --upgrade pip"
   - "%PYTHON%\\Scripts\\pip install pymyinstall"
-  - "%PYTHON%\\Scripts\\pymy_install3 cartopy pyproj shapely"
-  - "%PYTHON%\\Scripts\\pip install -r requirements.txt"
+  - "%PYTHON%\\Scripts\\pymy_install3 cartopy pyproj shapely llvmlite numba"
+  - "%PYTHON%\\Scripts\\pip install -r requirements.txt --ignore-installed llvmlite"
 
 build: off
 

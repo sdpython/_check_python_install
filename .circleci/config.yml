@@ -42,6 +42,11 @@ jobs:
             sudo apt-get install -y libgeos-dev libproj-dev proj-data graphviz
 
       - run:
+          name: Install llvmlite
+          command: |
+            sudo apt-get install -y python-llvmlite
+
+      - run:
           name: Install standard libraries
           command: |
             python3 -m venv venv
