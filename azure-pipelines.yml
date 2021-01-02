@@ -90,18 +90,18 @@ jobs:
   #- script: brew install --cask mactex
   #  continueOnError: true
   #  displayName: 'Install latex'
-  - script: pip install --upgrade pip setuptools wheel
-    displayName: 'Install pip setuptools wheel'
-  - script: pip install numpy
-    displayName: 'Install numpy'
+  - bash: conda install numpy scipy
+    displayName: Install numpy scipy
+  - bash: conda install llvmlite numba
+    displayName: Install llvmlite numba
+  - bash: conda install pyproj cartopy shapely
+    displayName: Install pyproj cartopy shapely
   - script: pip install -r requirements.txt
     displayName: 'Install Requirements'
   - script: export PYTHONPATH=src
     displayName: 'PYTHONPATH=src'
   - script: python -u setup.py unittests
     displayName: 'Runs Unit Tests'
-  - script: pip freeze
-    displayName: 'pip freeze'
   - script: python -u setup.py bdist_wheel
     displayName: 'Build Package'
   - task: PublishPipelineArtifact@0
