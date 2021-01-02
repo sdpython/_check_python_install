@@ -4,6 +4,7 @@ coverage
 cython
 jupyter_sphinx
 jyquickhelper
+llvmlite==0.34.0
 matplotlib
 numba
 numpy
