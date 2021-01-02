@@ -14,14 +14,6 @@ sphinx
 sphinxcontrib.imagesvg
 wheel
 
-# matplotlib
-cycler
-kiwisolver
-pillow
-pyparsing
-python-dateutil
-six
-
 # numba
 llvmlite
 numba

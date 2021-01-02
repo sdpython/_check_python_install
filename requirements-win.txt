@@ -1,0 +1,6 @@
+astroid
+importlib_metadata
+matplotlib
+numpy
+pymyinstall
+pyshp
