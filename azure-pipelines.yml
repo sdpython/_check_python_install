@@ -33,7 +33,7 @@ jobs:
     displayName: 'Install 7z, rar'
   - script: sudo apt-get install -y graphviz
     displayName: 'Install Graphviz'
-  - script: python -m pip install --upgrade pip setuptools wheel
+  - script: python -m pip install --upgrade pip setuptools wheel numpy
     displayName: 'Install tools'
   - script: pip install -r requirements.txt
     displayName: 'Install Requirements'
@@ -84,18 +84,15 @@ jobs:
     displayName: Take ownership of conda installation
   - bash: conda update conda --yes --quiet
     displayName: Update conda.
-  - script: brew install --cask mactex
-    continueOnError: true
-    displayName: 'Install latex'
+  #- script: brew install --cask mactex
+  #  continueOnError: true
+  #  displayName: 'Install latex'
   - script: python -m pip install --upgrade pip setuptools wheel
     displayName: 'Install tools'
-  - bash: conda info -a
-    displayName: 'Info'
   - bash: conda create --yes --quiet --name pyenv -c defaults -c conda-forge python=$PYTHON_VERSION tox sphinx jupyter Cython numpy mkl scipy scikit-learn pandas coverage pylint
     displayName: Create Anaconda environment.
-  - bash: conda list
   - bash: source activate pyenv
-  - script: conda install requirements.txt
+  - script: conda install -r requirements.txt
     displayName: 'Install Requirements'
   - script: export PYTHONPATH=src
     displayName: 'PYTHONPATH=src'
