@@ -90,7 +90,7 @@ jobs:
   #- script: brew install --cask mactex
   #  continueOnError: true
   #  displayName: 'Install latex'
-  - bash: conda install numpy scipy
+  - bash: pip install numpy scipy
     displayName: Install numpy scipy
   - bash: conda install llvmlite numba
     displayName: Install llvmlite numba
