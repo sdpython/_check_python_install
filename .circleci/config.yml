@@ -48,6 +48,7 @@ jobs:
             wget https://apt.llvm.org/llvm.sh
             chmod +x llvm.sh
             sudo ./llvm.sh 10
+            ls /usr/bin/llvm*
 
       - run:
           name: Install standard libraries
@@ -71,7 +72,8 @@ jobs:
           command: |
             python3 -m venv venv
             . venv/bin/activate
-            export LLVM_CONFIG=/usr/local/opt/llvm/bin/llvm-config
+            # export LLVM_CONFIG=/usr/local/opt/llvm/bin/llvm-config
+            sudo ln -s /usr/bin/llvm-config-10 /usr/bin/llvm-config
             pip3 install llvmlite numba
 
       - run:

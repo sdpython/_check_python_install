@@ -1,20 +1,25 @@
 autopep8
-cartopy
 coverage
 cython
 jupyter_sphinx
 jyquickhelper
-llvmlite
 matplotlib
-numba
 numpy
 pandas
 pycodestyle
 pylint
-pyproj
 pyquickhelper
 scipy
-shapely
 sphinx
 sphinxcontrib.imagesvg
 wheel
+
+# numba
+llvmlite
+numba
+
+# cartopy
+cartopy
+pyproj
+pyshp
+shapely
