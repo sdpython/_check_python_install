@@ -12,8 +12,8 @@ before_install:
     - chmod +x llvm.sh
     - sudo ./llvm.sh 10
     - ls /usr/bin/llvm*
-    # - export LLVM_CONFIG=/usr/local/opt/llvm/bin/llvm-config
-    - sudo ln -s /usr/bin/llvm-config-10 /usr/bin/llvm-config
+    - export LLVM_CONFIG=/usr/bin/llvm-config
+    # - sudo ln -s /usr/bin/llvm-config-10 /usr/bin/llvm-config
 
 install:
     - pip install -r requirements.txt

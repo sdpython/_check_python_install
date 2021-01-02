@@ -20,6 +20,7 @@ numba
 
 # cartopy
 cartopy
+pyparsing
 pyproj
 pyshp
 shapely
