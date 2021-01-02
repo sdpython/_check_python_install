@@ -67,6 +67,14 @@ jobs:
             pip3 install cartopy
 
       - run:
+          name: Install numba, llvmlite
+          command: |
+            python3 -m venv venv
+            . venv/bin/activate
+            export LLVM_CONFIG=/usr/local/opt/llvm/bin/llvm-config
+            pip3 install llvmlite numba
+
+      - run:
           name: install dependencies
           command: |
             python3 -m venv venv
