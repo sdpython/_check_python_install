@@ -49,7 +49,7 @@ jobs:
       python -m pip install cibuildwheel
       export CIBW_MANYLINUX_X86_64_IMAGE="manylinux2014"
       export CIBW_BEFORE_BUILD="pip install ."
-      export CIBW_BEFORE_BUILD="pip install numpy;pip install pybind11 cython numpy scipy pyquickhelper numba cartopy"
+      export CIBW_BEFORE_BUILD="pip install numpy;pip install pybind11 cython scipy pyquickhelper"
       export CIBW_BUILD="cp37-manylinux_x86_64 cp38-manylinux_x86_64 cp39-manylinux_x86_64"
       python -m cibuildwheel --output-dir dist/wheelhouse --platform linux
     displayName: 'Build Package manylinux2014'
@@ -114,7 +114,7 @@ jobs:
   - script: |
       python -m pip install cibuildwheel
       export CIBW_BEFORE_BUILD="pip install ."
-      export CIBW_BEFORE_BUILD="pip install numpy;pip install pybind11 cython numpy scipy pyquickhelper numba cartopy"
+      export CIBW_BEFORE_BUILD="pip install numpy;pip install pybind11 cython scipy pyquickhelper"
       export CIBW_BUILD="cp37-macosx_x86_64 cp38-macosx_x86_64 cp39-macosx_x86_64"
       python -m cibuildwheel --output-dir dist/wheelhouse
     displayName: 'Build Package many'
@@ -137,7 +137,7 @@ jobs:
     inputs:
       versionSpec: '$(python.version)'
       architecture: 'x64'
-  - script: python -m pip install --upgrade pip setuptools wheel
+  - script: python -m pip install --upgrade pip setuptools wheel numpy
     displayName: 'Install tools'
   - script: pip install -r requirements.txt
     displayName: 'Install Requirements'
@@ -152,7 +152,7 @@ jobs:
   - script: |
       python -m pip install cibuildwheel
       set CIBW_BEFORE_BUILD=pip install .
-      set CIBW_BEFORE_BUILD=pip install numpy&pip install pybind11 cython numpy scipy pyquickhelper numba cartopy
+      set CIBW_BEFORE_BUILD=pip install numpy&pip install pybind11 cython scipy pyquickhelper
       set CIBW_BUILD=cp37-win_amd64 cp38-win_amd64 cp39-win_amd64
       python -m cibuildwheel --output-dir dist/wheelhouse
     displayName: 'Build Package many'
