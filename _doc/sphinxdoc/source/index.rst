@@ -4,8 +4,8 @@ check_python_install
 
 .. only:: html
 
-    .. image:: https://travis-ci.org/sdpython/_check_python_install.svg?branch=master
-        :target: https://travis-ci.org/sdpython/_check_python_install
+    .. image:: https://travis-ci.com/sdpython/_check_python_install.svg?branch=master
+        :target: https://travis-ci.com/sdpython/_check_python_install
         :alt: Build status
 
     .. image:: https://ci.appveyor.com/api/projects/status/dy37r7bykm3ulcfl?svg=true
@@ -34,7 +34,7 @@ check_python_install
 
 **Links:** `github <https://github.com/sdpython/_check_python_install/>`_,
 `documentation <http://www.xavierdupre.fr/app/_check_python_install/helpsphinx2/index.html>`_,
-`travis <https://travis-ci.org/sdpython/_check_python_install>`_,
+`travis <https://travis-ci.com/sdpython/_check_python_install>`_,
 :ref:`l-README`,
 :ref:`blog <ap-main-0>`
 
