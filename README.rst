@@ -1,6 +1,6 @@
 
-.. image:: https://travis-ci.org/sdpython/_check_python_install.svg?branch=master
-    :target: https://travis-ci.org/sdpython/_check_python_install
+.. image:: https://travis-ci.com/sdpython/_check_python_install.svg?branch=master
+    :target: https://travis-ci.com/sdpython/_check_python_install
     :alt: Build status
 
 .. image:: https://ci.appveyor.com/api/projects/status/dy37r7bykm3ulcfl?svg=true
