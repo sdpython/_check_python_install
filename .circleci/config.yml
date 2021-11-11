@@ -42,20 +42,20 @@ jobs:
             sudo apt-get install -y libgeos-dev libproj-dev proj-data graphviz
 
       - run:
-          name: Install llvmlite
-          command: |
-            sudo apt-get install lsb-release wget software-properties-common
-            wget https://apt.llvm.org/llvm.sh
-            chmod +x llvm.sh
-            sudo ./llvm.sh 10
-            ls /usr/bin/llvm*
-
-      - run:
           name: Install standard libraries
           command: |
             python -m venv venv
             . venv/bin/activate
-            pip install scipy matplotlib numpy cython pandas
+            pip install scipy matplotlib numpy cython pandas wheel pybind11 llvmlite numba
+
+      - run:
+          name: Install numba, llvmlite
+          command: |
+            python -m venv venv
+            . venv/bin/activate
+            # export LLVM_CONFIG=/usr/local/opt/llvm/bin/llvm-config
+            sudo ln -s /usr/bin/llvm-config-10 /usr/bin/llvm-config
+            pip install llvmlite numba
 
       - run:
           name: Install pyproj, shapely, cartopy
@@ -66,15 +66,6 @@ jobs:
             pip uninstall -y shapely
             pip install --no-binary shapely shapely
             pip install cartopy
-
-      - run:
-          name: Install numba, llvmlite
-          command: |
-            python -m venv venv
-            . venv/bin/activate
-            # export LLVM_CONFIG=/usr/local/opt/llvm/bin/llvm-config
-            sudo ln -s /usr/bin/llvm-config-10 /usr/bin/llvm-config
-            pip install llvmlite numba
 
       - run:
           name: install dependencies

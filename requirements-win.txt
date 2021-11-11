@@ -1,4 +1,5 @@
 astroid
+cython
 importlib_metadata
 isort
 matplotlib
