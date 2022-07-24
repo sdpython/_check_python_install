@@ -4,8 +4,8 @@ jobs:
     vmImage: 'ubuntu-latest'
   strategy:
     matrix:
-      Python39-Linux:
-        python.version: '3.9'
+      Python310-Linux:
+        python.version: '3.10'
     maxParallel: 3
   steps:
   - task: UsePythonVersion@0
@@ -48,9 +48,8 @@ jobs:
   - script: |
       python -m pip install cibuildwheel
       export CIBW_MANYLINUX_X86_64_IMAGE="manylinux2014"
-      export CIBW_BEFORE_BUILD="pip install ."
-      export CIBW_BEFORE_BUILD="pip install numpy;pip install pybind11 cython scipy pyquickhelper"
-      export CIBW_BUILD="cp37-manylinux_x86_64 cp39-manylinux_x86_64 cp38-manylinux_x86_64"
+      export CIBW_BEFORE_BUILD="pip install numpy pybind11 cython scipy pyquickhelper"
+      export CIBW_BUILD="cp37-manylinux_x86_64 cp39-manylinux_x86_64 cp38-manylinux_x86_64 cp310-manylinux_x86_64"
       export CIBW_REPAIR_WHEEL_COMMAND_LINUX="auditwheel repair -w {dest_dir} {wheel}  --plat manylinux2014_x86_64"
       python -m cibuildwheel --output-dir dist/wheelhouse --platform linux
     displayName: 'Build Package manylinux2014'
@@ -66,8 +65,8 @@ jobs:
     vmImage: 'macOS-latest'
   strategy:
     matrix:
-      Python39-MacOs:
-        python.version: "3.9"
+      Python310-MacOs:
+        python.version: "3.10"
   steps:
   - task: UsePythonVersion@0
     inputs:
@@ -114,9 +113,8 @@ jobs:
     displayName: 'Build Package'
   - script: |
       python -m pip install cibuildwheel
-      export CIBW_BEFORE_BUILD="pip install ."
-      export CIBW_BEFORE_BUILD="pip install numpy;pip install pybind11 cython scipy pyquickhelper"
-      export CIBW_BUILD="cp37-macosx_x86_64 cp38-macosx_x86_64 cp39-macosx_x86_64"
+      export CIBW_BEFORE_BUILD="pip install numpy pybind11 cython scipy pyquickhelper"
+      export CIBW_BUILD="cp37-macosx_x86_64 cp38-macosx_x86_64 cp39-macosx_x86_64 cp310-macosx_x86_64"
       python -m cibuildwheel --output-dir dist/wheelhouse
     displayName: 'Build Package many'
   - task: PublishPipelineArtifact@0
@@ -130,8 +128,8 @@ jobs:
     vmImage: 'windows-latest'
   strategy:
     matrix:
-      Python39-Linux:
-        python.version: '3.9'
+      Python310-Linux:
+        python.version: '3.10'
     maxParallel: 3
   steps:
   - task: UsePythonVersion@0
@@ -152,9 +150,8 @@ jobs:
     displayName: 'Runs Unit Tests'
   - script: |
       python -m pip install cibuildwheel
-      set CIBW_BEFORE_BUILD=pip install .
-      set CIBW_BEFORE_BUILD=pip install numpy&pip install pybind11 cython scipy pyquickhelper
-      set CIBW_BUILD=cp37-win_amd64 cp38-win_amd64 cp39-win_amd64
+      set CIBW_BEFORE_BUILD="pip install numpy&pip install pybind11 cython scipy pyquickhelper"
+      set CIBW_BUILD="cp37-win_amd64 cp38-win_amd64 cp39-win_amd64 cp310-win_amd64"
       python -m cibuildwheel --output-dir dist/wheelhouse
     displayName: 'Build Package many'
   - task: PublishPipelineArtifact@0
