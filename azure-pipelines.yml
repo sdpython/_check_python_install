@@ -114,6 +114,7 @@ jobs:
   - script: |
       python -m pip install cibuildwheel
       export CIBW_BEFORE_BUILD="pip install numpy pybind11 cython scipy pyquickhelper"
+      export CIBW_BUILD_VERBOSITY=1
       export CIBW_BUILD="cp37-macosx_x86_64 cp38-macosx_x86_64 cp39-macosx_x86_64 cp310-macosx_x86_64"
       python -m cibuildwheel --output-dir dist/wheelhouse
     displayName: 'Build Package many'
