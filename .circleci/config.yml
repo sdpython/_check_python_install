@@ -68,7 +68,7 @@ jobs:
           name: Install numba, llvmlite
           command: |
             # export LLVM_CONFIG=/usr/local/opt/llvm/bin/llvm-config
-            sudo ln -s /usr/bin/llvm-config-10 /usr/bin/llvm-config
+            # sudo ln -s /usr/bin/llvm-config-10 /usr/bin/llvm-config
             pip install llvmlite numba
 
       - run:
