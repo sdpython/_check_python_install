@@ -6,14 +6,14 @@ from pyquickhelper.helpgen.default_conf import set_sphinx_variables
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.split(__file__)[0])))
 
-set_sphinx_variables(__file__, "check_python_install", "Xavier Dupré", 2021,
+set_sphinx_variables(__file__, "check_python_install", "Xavier Dupré", 2023,
                      "alabaster", alabaster.get_path(), locals(), add_extensions=['alabaster'],
                      extlinks=dict(issue=(
                          'https://github.com/sdpython/_check_python_install/issues/%s',
                          'issue %s')))
 
 blog_root = "http://www.xavierdupre.fr/app/_check_python_install/helpsphinx/"
-html_logo = "phdoc_static/project_ico.png"
+html_logo = "_static/project_ico.png"
 
 notebooks_urls = "http://www.xavierdupre.fr/app/_check_python_install/helpsphinx/notebooks/"
 
