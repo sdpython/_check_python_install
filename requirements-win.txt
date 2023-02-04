@@ -3,6 +3,7 @@ cython
 importlib_metadata
 isort
 matplotlib
+numba
 numpy
 pylint
 pymyinstall
